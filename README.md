@@ -245,11 +245,11 @@ Type: boolean <br />
 Description: Set film as active or inactive.
 
 #### Example
-POST theCodaCollection/updateTitle?title=Super Idol's Super Summer
+POST theCodaCollection/updateTitle?title=Super Idol's Super Summer&activeStatus=False
 
 <details>
 <summary>Request</summary>
-```json
+```yaml
 {
     "venue" : {
         "city" : "Dallas",
@@ -257,4 +257,4 @@ POST theCodaCollection/updateTitle?title=Super Idol's Super Summer
         "name" : "My Mom's Backyard"
     }
 }
-```
+
