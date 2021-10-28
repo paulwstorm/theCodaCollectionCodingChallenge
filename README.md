@@ -44,7 +44,7 @@ GET theCodaCollection/topArtists?top=15
 
 <details>
 <summary>Response</summary>
-'''
+'''json
 [
     "Jimi Hendrix",
     "The Rolling Stones",
@@ -74,7 +74,7 @@ GET theCodaCollection/Jimi Hendrix
 
 <details>
 <summary>Response</summary>
-```
+```json
 [
     {
         "id": 16,
@@ -182,9 +182,7 @@ POST /theCodaCollection/upload?title=superCoolConcert
 
 <details>
 <summary>Response</summary>
-```
 Upload of superCoolConcert10 in progress!
-```
 </details>
 
 GET theCodaCollection/uploadStatus
@@ -195,9 +193,7 @@ GET theCodaCollection/uploadStatus
 
 <details>
 <summary>Response</summary>
-```
 current upload status: 80%
-```
 </details>
 
 POST theCodaCollection/
@@ -210,7 +206,7 @@ POST theCodaCollection/
 
 <details>
 <summary>Request</summary>
-```
+```json
 {
     "artist" : {
         "name" : "Super Idol",
@@ -230,10 +226,6 @@ POST theCodaCollection/
     }
 }
 ```
-<summary>Response</summary>
-```
-```
-</details>
 
 POST theCodaCollection/updateTitle
 
@@ -254,7 +246,7 @@ Description: Set film as active or inactive.
 
 <details>
 <summary>Request</summary>
-```
+```json
 {
     "venue" : {
         "city" : "Dallas",
@@ -263,7 +255,3 @@ Description: Set film as active or inactive.
     }
 }
 ```
-<summary>Response</summary>
-```
-```
-</details>
