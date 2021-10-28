@@ -250,8 +250,8 @@ Allows the user to update an existing title.
 Parameters <br />
 Name: title <br />
 Type: String <br />
-Description: REQUIRED - name of title to update
-<br />
+Description: REQUIRED - name of title to update<br />
+
 Name: activeStatus <br />
 Type: boolean <br />
 Description: Set film as active or inactive.
