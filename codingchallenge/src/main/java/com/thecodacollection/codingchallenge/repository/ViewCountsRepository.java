@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public interface ViewCountsRepository extends JpaRepository<ViewCountsData, Long> {
@@ -17,9 +16,9 @@ public interface ViewCountsRepository extends JpaRepository<ViewCountsData, Long
             "WHERE ARTIST IS NOT NULL " +
             "GROUP BY ARTIST " +
             "ORDER BY SUM(V.VIEW_COUNT) DESC " +
-            "LIMIT 10",
+            "LIMIT ?1",
     nativeQuery = true)
-    public List<String> getArtistViews();
+    public List<String> getArtistViews(Integer top);
 
 }
 

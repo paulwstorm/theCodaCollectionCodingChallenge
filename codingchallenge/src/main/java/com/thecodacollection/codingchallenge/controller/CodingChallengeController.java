@@ -1,19 +1,17 @@
 package com.thecodacollection.codingchallenge.controller;
 
+import com.thecodacollection.codingchallenge.entities.ReqTitleDTO;
 import com.thecodacollection.codingchallenge.entities.TitlesData;
-import com.thecodacollection.codingchallenge.entities.ViewCountsData;
+import com.thecodacollection.codingchallenge.entities.VenuesData;
 import com.thecodacollection.codingchallenge.repository.TitlesRepository;
+import com.thecodacollection.codingchallenge.repository.VenuesRepository;
 import com.thecodacollection.codingchallenge.repository.ViewCountsRepository;
 import com.thecodacollection.codingchallenge.service.CodingChallengeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @RestController
 @Slf4j
@@ -25,20 +23,17 @@ public class CodingChallengeController {
     ViewCountsRepository viewCountsRepository;
     @Autowired
     CodingChallengeService codingChallengeService;
+    @Autowired
+    VenuesRepository venuesRepository;
 
-    @RequestMapping("theCodaCollection")
-    public String homepage() {
-        return "Hello!";
-    }
-
-    @RequestMapping("/theCodaCollection/topFilms")
+    @RequestMapping("/theCodaCollection/allFilms")
     public List<TitlesData> getTopFilms() {
         return titlesRepository.findAll();
     }
 
     @RequestMapping("/theCodaCollection/topArtists")
-    public List<String> getViewCounts() {
-        List<String> topArtists = viewCountsRepository.getArtistViews();
+    public List<String> getViewCounts(@RequestParam(value = "top", required = false, defaultValue = "10") Integer top) {
+        List<String> topArtists = viewCountsRepository.getArtistViews(top);
         return topArtists;
     }
 
@@ -65,7 +60,32 @@ public class CodingChallengeController {
     }
 
     @PostMapping("/theCodaCollection")
-    public String addNewConcert() {
+    public void addNewConcert(@RequestBody ReqTitleDTO reqTitleDTO) {
+        codingChallengeService.newConcert(reqTitleDTO);
+    }
 
+    @PostMapping("/theCodaCollection/updateTitle")
+    public void updateTitle(
+            @RequestParam(value = "title", required = true) String title,
+            @RequestParam(value = "activeStatus", required = false) Boolean activeStatus,
+            @RequestBody(required = false) ReqTitleDTO reqTitleDTO
+            ) {
+
+        if (activeStatus != null) {
+            Integer activeStatusUpdates = titlesRepository.updateTitleActiveStatus(activeStatus, title);
+            log.info("Active Status updated for " + String.valueOf(activeStatusUpdates) + " titles!");
+        };
+
+        if (reqTitleDTO != null) {
+            VenuesData venuesData = venuesRepository.getByName(reqTitleDTO.getVenue().getName());
+            Integer venueUpdates;
+            if (venuesData != null) {
+                venueUpdates = titlesRepository.updateTitleVenue(reqTitleDTO.getVenue().getName(), title);
+            } else {
+                venuesRepository.save(reqTitleDTO.getVenue());
+                venueUpdates = titlesRepository.updateTitleVenue(reqTitleDTO.getVenue().getName(), title);
+            }
+            log.info("Venue updated for " + String.valueOf(venueUpdates) + " titles!");
+        }
     }
 }

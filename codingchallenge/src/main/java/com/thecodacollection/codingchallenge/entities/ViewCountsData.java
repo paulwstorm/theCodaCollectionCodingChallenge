@@ -13,7 +13,8 @@ import java.io.Serializable;
 public class ViewCountsData implements Serializable {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "view_counts_generator")
+    @SequenceGenerator(name="view_counts_generator", sequenceName = "view_counts_seq", allocationSize = 1)
     @Column(name = "ID")
     private Long id;
 
@@ -22,9 +23,5 @@ public class ViewCountsData implements Serializable {
 
     @Column(name = "VIEW_COUNT")
     private Integer viewCount;
-
-//    @OneToOne
-////    @JoinColumn(name = "TITLE_ID", referencedColumnName = "ID")
-//    TitlesData titlesData;
 
 }

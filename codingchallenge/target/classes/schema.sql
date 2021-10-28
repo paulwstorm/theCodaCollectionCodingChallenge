@@ -47,4 +47,16 @@ CREATE TABLE VIEW_COUNTS (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     TITLE_ID INT REFERENCES TITLES(ID),
     VIEW_COUNT INT
-)
+);
+
+CREATE SEQUENCE IF NOT EXISTS artists_seq start with 500 increment by 1;
+SELECT artists_seq.nextval from dual;
+
+CREATE SEQUENCE IF NOT EXISTS titles_seq start with 500 increment by 1;
+SELECT titles_seq.nextval from dual;
+
+CREATE SEQUENCE IF NOT EXISTS venues_seq start with 500 increment by 1;
+SELECT venues_seq.nextval from dual;
+
+CREATE SEQUENCE IF NOT EXISTS view_counts_seq start with 500 increment by 1;
+SELECT view_counts_seq.nextval from dual;

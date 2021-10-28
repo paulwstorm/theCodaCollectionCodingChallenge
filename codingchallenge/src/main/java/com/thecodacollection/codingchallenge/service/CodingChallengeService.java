@@ -1,15 +1,24 @@
 package com.thecodacollection.codingchallenge.service;
 
 
+import com.thecodacollection.codingchallenge.entities.ReqTitleDTO;
+import com.thecodacollection.codingchallenge.repository.ArtistRepository;
+import com.thecodacollection.codingchallenge.repository.TitlesRepository;
+import com.thecodacollection.codingchallenge.repository.VenuesRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.concurrent.TimeUnit;
 
 @Service
 @Slf4j
 public class CodingChallengeService {
+
+    @Autowired
+    ArtistRepository artistRepository;
+    @Autowired
+    TitlesRepository titlesRepository;
+    @Autowired
+    VenuesRepository venuesRepository;
 
     private Integer uploadPercentage;
     private String title;
@@ -26,7 +35,7 @@ public class CodingChallengeService {
             uploading = false;
             title = null;
         } else {
-            uploadPercentage += 10;
+            uploadPercentage += 20;
         }
 
         return currentUploadPercentage;
@@ -36,5 +45,11 @@ public class CodingChallengeService {
         this.title = title;
         this.uploadPercentage = 0;
         this.uploading = true;
+    }
+
+    public void newConcert(ReqTitleDTO reqTitleDTO) {
+        artistRepository.save(reqTitleDTO.getArtist());
+        venuesRepository.save(reqTitleDTO.getVenue());
+        titlesRepository.save(reqTitleDTO.getTitle());
     }
 }

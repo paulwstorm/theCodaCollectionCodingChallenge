@@ -12,29 +12,24 @@ import java.io.Serializable;
 public class TitlesData implements Serializable {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "titles_generator")
+    @SequenceGenerator(name="titles_generator", sequenceName = "titles_seq", allocationSize = 1)
     @Column(name = "ID")
     private Long id;
 
     @Column(name = "TITLE")
     private String title;
 
-//    @ManyToOne
     @Column(name = "GENRE")
     private String genre;
 
-//    @ManyToOne
     @Column(name = "ARTIST")
     private String artist;
 
-//    @ManyToOne
     @Column(name = "VENUE")
     private String venue;
 
     @Column(name = "ACTIVE")
     private Boolean active;
-
-//    @OneToOne(mappedBy = "titleId")
-//    private ViewCountsData viewCountsData;
 
 }
