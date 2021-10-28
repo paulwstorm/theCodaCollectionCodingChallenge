@@ -186,8 +186,11 @@ POST /theCodaCollection/upload?title=superCoolConcert
 
 <details>
 <summary>Response</summary>
-    
+
+```yaml
 Upload of superCoolConcert10 in progress!
+```
+    
 </details>
 
 GET theCodaCollection/uploadStatus
@@ -199,7 +202,10 @@ GET theCodaCollection/uploadStatus
 <details>
 <summary>Response</summary>
     
+```yaml   
 current upload status: 80%
+```
+    
 </details>
 
 POST theCodaCollection/
