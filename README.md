@@ -44,7 +44,7 @@ GET theCodaCollection/topArtists?top=15
 
 <details>
 <summary>Response</summary>
-'''json
+```yaml
 [
     "Jimi Hendrix",
     "The Rolling Stones",
@@ -62,7 +62,7 @@ GET theCodaCollection/topArtists?top=15
     "Desmond Dekker",
     "Jane's Addiction"
 ]
-'''
+```
 </details>
 
 ### GET theCodaCollection/{artist}
@@ -182,6 +182,7 @@ POST /theCodaCollection/upload?title=superCoolConcert
 
 <details>
 <summary>Response</summary>
+    
 Upload of superCoolConcert10 in progress!
 </details>
 
@@ -193,6 +194,7 @@ GET theCodaCollection/uploadStatus
 
 <details>
 <summary>Response</summary>
+    
 current upload status: 80%
 </details>
 
@@ -243,6 +245,7 @@ Type: boolean <br />
 Description: Set film as active or inactive.
 
 #### Example
+POST theCodaCollection/updateTitle?title=Super Idol's Super Summer
 
 <details>
 <summary>Request</summary>
