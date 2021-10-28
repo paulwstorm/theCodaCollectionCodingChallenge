@@ -44,7 +44,7 @@ GET theCodaCollection/topArtists?top=15
 
 <details>
 <summary>Response</summary>
-```
+'''
 [
     "Jimi Hendrix",
     "The Rolling Stones",
@@ -62,7 +62,7 @@ GET theCodaCollection/topArtists?top=15
     "Desmond Dekker",
     "Jane's Addiction"
 ]
-```
+'''
 </details>
 
 ### GET theCodaCollection/{artist}
