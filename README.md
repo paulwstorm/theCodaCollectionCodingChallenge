@@ -77,7 +77,7 @@ GET theCodaCollection/Jimi Hendrix
 <details>
 <summary>Response</summary>
     
-```json
+```yaml
 [
     {
         "id": 16,
@@ -212,7 +212,8 @@ POST theCodaCollection/
 
 <details>
 <summary>Request</summary>
-```js
+    
+```yaml
 {
     "artist" : {
         "name" : "Super Idol",
@@ -232,6 +233,7 @@ POST theCodaCollection/
     }
 }
 ```
+    
 </details>
 
 POST theCodaCollection/updateTitle
@@ -255,7 +257,7 @@ POST theCodaCollection/updateTitle?title=Super Idol's Super Summer&activeStatus=
 <details>
 <summary>Request</summary>
     
-```python
+```yaml
 {
     "venue" : {
         "city" : "Dallas",
@@ -264,4 +266,5 @@ POST theCodaCollection/updateTitle?title=Super Idol's Super Summer&activeStatus=
     }
 }
 ```
+    
 </details>   
