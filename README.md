@@ -44,6 +44,7 @@ GET theCodaCollection/topArtists?top=15
 
 <details>
 <summary>Response</summary>
+    
 ```yaml
 [
     "Jimi Hendrix",
@@ -63,6 +64,7 @@ GET theCodaCollection/topArtists?top=15
     "Jane's Addiction"
 ]
 ```
+    
 </details>
 
 ### GET theCodaCollection/{artist}
@@ -74,6 +76,7 @@ GET theCodaCollection/Jimi Hendrix
 
 <details>
 <summary>Response</summary>
+    
 ```json
 [
     {
@@ -166,6 +169,7 @@ GET theCodaCollection/Jimi Hendrix
     }
 ]
 ```
+
 </details>
 
 ### POST theCodaCollection/upload
@@ -208,7 +212,7 @@ POST theCodaCollection/
 
 <details>
 <summary>Request</summary>
-```json
+```js
 {
     "artist" : {
         "name" : "Super Idol",
@@ -228,6 +232,7 @@ POST theCodaCollection/
     }
 }
 ```
+</details>
 
 POST theCodaCollection/updateTitle
 
@@ -250,7 +255,7 @@ POST theCodaCollection/updateTitle?title=Super Idol's Super Summer&activeStatus=
 <details>
 <summary>Request</summary>
     
-```perl
+```python
 {
     "venue" : {
         "city" : "Dallas",
@@ -259,3 +264,4 @@ POST theCodaCollection/updateTitle?title=Super Idol's Super Summer&activeStatus=
     }
 }
 ```
+</details>   
