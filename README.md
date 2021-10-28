@@ -251,8 +251,7 @@ Parameters <br />
 Name: title <br />
 Type: String <br />
 Description: REQUIRED - name of title to update
-
-Parameters <br />
+<br />
 Name: activeStatus <br />
 Type: boolean <br />
 Description: Set film as active or inactive.
