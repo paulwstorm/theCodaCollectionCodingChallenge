@@ -40,7 +40,7 @@ Type: Integer <br />
 Description: Number of artists to return, default is 10
 
 #### Example:
-GET theCodaCollection/topArtists?top=15
+GET /theCodaCollection/topArtists?top=15
 
 <details>
 <summary>Response</summary>
@@ -72,7 +72,7 @@ GET theCodaCollection/topArtists?top=15
 Returns all films for the selected artists
 
 #### Example
-GET theCodaCollection/Jimi Hendrix
+GET /theCodaCollection/Jimi Hendrix
 
 <details>
 <summary>Response</summary>
@@ -193,11 +193,12 @@ Upload of superCoolConcert10 in progress!
     
 </details>
 
-GET theCodaCollection/uploadStatus
+### GET theCodaCollection/uploadStatus
 
 If there is a film currently uploading, returns the current upload percentage.
 
-GET theCodaCollection/uploadStatus
+#### Example
+GET /theCodaCollection/uploadStatus
 
 <details>
 <summary>Response</summary>
@@ -208,13 +209,13 @@ current upload status: 80%
     
 </details>
 
-POST theCodaCollection/
+### POST theCodaCollection/
 
 Allows the user to place a new title in the body of the request to add a new title to the collection.
 
 #### Example
 
-POST theCodaCollection/
+POST /theCodaCollection/
 
 <details>
 <summary>Request</summary>
@@ -242,7 +243,7 @@ POST theCodaCollection/
     
 </details>
 
-POST theCodaCollection/updateTitle
+### POST theCodaCollection/updateTitle
 
 
 Allows the user to update an existing title.
@@ -257,7 +258,7 @@ Type: boolean <br />
 Description: Set film as active or inactive.
 
 #### Example
-POST theCodaCollection/updateTitle?title=Super Idol's Super Summer&activeStatus=False
+POST /theCodaCollection/updateTitle?title=Super Idol's Super Summer&activeStatus=False
 
 <details>
 <summary>Request</summary>
