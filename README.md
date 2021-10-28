@@ -8,7 +8,7 @@ Thank you for taking the time to look at my response to The Coda Collection's ba
 
 Inside of the controller folder you will find CodingChallengeController.java. This file sets up all endpoints for the project and manages request handling. 
 
-Inside of the entities folder you will find five files. There is one for each table in the database used for mapping the table datastructure into a java object. Additionally, there is the ReqTitleDTO which is used for taking in requests to create or update a title in the database.
+Inside of the entities folder you will find five files. There is one for each table in the database used for mapping the table datastructure into a java object. Additionally, there is the ReqTitleDTO which is used for taking in the data on a request body so it can be used to create or update a title in the database.
 
 Inside of the repository folder you will find four files. Inside of each is an interface that allows for connecitons to and queries on one of the tables in the database. 
 
