@@ -4,6 +4,8 @@ Thank you for taking the time to look at my response to The Coda Collection's ba
 
 # Project Structure
 
+This project uses Maven to manage its dependencies, so you will need to add the project as a maven project before it is able to run. If you have any trouble setting up the project or have any other questions, please feel free to contact me at: paulwwstorm@gmail.com
+
 ## Java files
 
 Inside of the controller folder you will find CodingChallengeController.java. This file sets up all endpoints for the project and manages request handling. 
