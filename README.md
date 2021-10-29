@@ -8,7 +8,7 @@ Thank you for taking the time to look at my response to The Coda Collection's ba
 
 Inside of the controller folder you will find CodingChallengeController.java. This file sets up all endpoints for the project and manages request handling. 
 
-Inside of the entities folder you will find five files. There is one for each table in the database used for mapping the table datastructure into a java object. Additionally, there is the ReqTitleDTO which is used for taking in requests to create or update a title in the database.
+Inside of the entities folder you will find five files. There is one for each table in the database used for mapping the table datastructure into a java object. Additionally, there is the ReqTitleDTO which is used for taking in the data on a request body so it can be used to create or update a title in the database.
 
 Inside of the repository folder you will find four files. Inside of each is an interface that allows for connecitons to and queries on one of the tables in the database. 
 
@@ -40,11 +40,12 @@ Type: Integer <br />
 Description: Number of artists to return, default is 10
 
 #### Example:
-GET theCodaCollection/topArtists?top=15
+GET /theCodaCollection/topArtists?top=15
 
 <details>
 <summary>Response</summary>
-```
+    
+```yaml
 [
     "Jimi Hendrix",
     "The Rolling Stones",
@@ -63,6 +64,7 @@ GET theCodaCollection/topArtists?top=15
     "Jane's Addiction"
 ]
 ```
+    
 </details>
 
 ### GET theCodaCollection/{artist}
@@ -70,11 +72,12 @@ GET theCodaCollection/topArtists?top=15
 Returns all films for the selected artists
 
 #### Example
-GET theCodaCollection/Jimi Hendrix
+GET /theCodaCollection/Jimi Hendrix
 
 <details>
 <summary>Response</summary>
-```
+    
+```yaml
 [
     {
         "id": 16,
@@ -166,6 +169,7 @@ GET theCodaCollection/Jimi Hendrix
     }
 ]
 ```
+
 </details>
 
 ### POST theCodaCollection/upload
@@ -182,35 +186,41 @@ POST /theCodaCollection/upload?title=superCoolConcert
 
 <details>
 <summary>Response</summary>
-```
+
+```yaml
 Upload of superCoolConcert10 in progress!
 ```
+    
 </details>
 
-GET theCodaCollection/uploadStatus
+### GET theCodaCollection/uploadStatus
 
 If there is a film currently uploading, returns the current upload percentage.
 
-GET theCodaCollection/uploadStatus
+#### Example
+GET /theCodaCollection/uploadStatus
 
 <details>
 <summary>Response</summary>
-```
+    
+```yaml   
 current upload status: 80%
 ```
+    
 </details>
 
-POST theCodaCollection/
+### POST theCodaCollection/
 
 Allows the user to place a new title in the body of the request to add a new title to the collection.
 
 #### Example
 
-POST theCodaCollection/
+POST /theCodaCollection/
 
 <details>
 <summary>Request</summary>
-```
+    
+```yaml
 {
     "artist" : {
         "name" : "Super Idol",
@@ -230,12 +240,10 @@ POST theCodaCollection/
     }
 }
 ```
-<summary>Response</summary>
-```
-```
+    
 </details>
 
-POST theCodaCollection/updateTitle
+### POST theCodaCollection/updateTitle
 
 
 Allows the user to update an existing title.
@@ -243,18 +251,19 @@ Allows the user to update an existing title.
 Parameters <br />
 Name: title <br />
 Type: String <br />
-Description: REQUIRED - name of title to update
+Description: REQUIRED - name of title to update<br />
 
-Parameters <br />
 Name: activeStatus <br />
 Type: boolean <br />
 Description: Set film as active or inactive.
 
 #### Example
+POST /theCodaCollection/updateTitle?title=Super Idol's Super Summer&activeStatus=False
 
 <details>
 <summary>Request</summary>
-```
+    
+```yaml
 {
     "venue" : {
         "city" : "Dallas",
@@ -263,7 +272,5 @@ Description: Set film as active or inactive.
     }
 }
 ```
-<summary>Response</summary>
-```
-```
-</details>
+    
+</details>   
